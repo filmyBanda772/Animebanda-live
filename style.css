@@ -221,9 +221,39 @@
      margin-top: 20px;
 }
 
+/* =========================================
+   MOBILE RESPONSIVENESS (Fix for equal cards)
+========================================= */
 @media (max-width: 768px) {
+    .movies-container { 
+        /* 1fr की जगह minmax(0, 1fr) लगाने से दोनों कार्ड्स हमेशा एकदम 50-50% रहेंगे */
+        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        gap: 10px; 
+    }
+    
+    .movie-card img { 
+        height: 180px; /* मोबाइल के लिए परफेक्ट हाइट */
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .movie-title { 
+        font-size: 0.9rem; 
+    }
+    
+    .movie-year { 
+        font-size: 0.75rem; 
+        margin-bottom: 10px; 
+    }
+    
+    /* मोबाइल पर बटन्स थोड़े छोटे और फिट रहें */
+    .btn-download { 
+        padding: 6px 0; 
+        font-size: 0.75rem; 
+    }
+    
     #searchInput { 
-        width: 200px; /* Mobile par thoda chota dikhega */
+        width: 180px; 
     }
 }
 /* =========================================
