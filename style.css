@@ -1,0 +1,239 @@
+ /* 1. Basic Body Setup */
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 2. Header & Title Styling */
+        .top-header {
+            background-color: #1a1a1a;
+            text-align: center;
+            padding: 30px 10px;
+            border-bottom: 2px solid #ff5722; /* Orange Anime Theme line */
+        }
+        .site-title {
+            color: #ff5722;
+            font-size: 2.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+        .site-tagline {
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        /* 3. My others website Buttons Styling */
+        .partner-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .btn-partner {
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .filmy-btn { background-color: #007bff; } 
+        .filmy-btn:hover { background-color: #0056b3; }
+        .dummy-btn { background-color: #ff0000; } 
+        .dummy-btn:hover { background-color: #ff0202; }
+
+        /* 4. Navigation Menu Styling */
+        .navbar {
+            background-color: #222;
+            padding: 15px 0;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 5px;
+            padding: 0px;
+        }
+        .navbar a {
+            color: rgb(255, 230, 4);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .navbar a:hover { color: #ff5722; }
+
+        /* 5. Main Content & Grid Setup (PC View - 4+ Cards) */
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .movies-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        /* 6. single Movie Card Styling */
+        .movie-card {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+             /*cards animation */
+            opacity: 0; /* cards are not showing in starting */
+            transform: translateY(40px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* for smooth effect*/
+        }
+            .movie-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .movie-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 3px solid #333;
+        }
+        .movie-info { 
+            padding: 15px; 
+            text-align: center; 
+        }
+        .movie-title { 
+            font-size: 1rem; 
+            margin-bottom: 5px; 
+            font-weight: bold; 
+        }
+        .movie-year { 
+            color: #888; 
+            font-size: 0.85rem; 
+            margin: 0; 
+        }
+
+        /* =========================================
+           7. MOBILE view (2-Card View)
+        ========================================= */
+        @media (max-width: 768px) {
+            .partner-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn-partner { width: 80%; text-align: center; } 
+            
+            /* Forces 2 cards in one line on mobile */
+            .movies-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            /* Adjusts poster height for mobile so it doesn't stretch */
+            .movie-card img { height: 200px; }
+            .movie-title { font-size: 0.85rem; }
+        }
+        /* =========================================
+   8. PAGINATION BUTTONS
+========================================= */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.pagination a {
+    background-color: #222;
+    color: white;
+    padding: 10px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 1px solid #333;
+}
+
+.pagination a:hover {
+    background-color: #444;
+}
+
+/* Jo page open hai uska color (Cyan/Blue) */
+.pagination a.active {
+    background-color: #00c3d9; 
+    color: black;
+    border-color: #00c3d9;
+}
+/* =========================================
+   DOWNLOAD BUTTONS (Fast Server, Mega, Terabox)
+========================================= */
+.download-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Common Button Style (Sabhi buttons ka base) */
+.btn-download {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+/* 1. Fast Server (Orange/Yellow) */
+.btn-fast { 
+    background-color: #ff9800; 
+    color: black; 
+}
+.btn-fast:hover { 
+    background-color: #e68a00; 
+}
+
+
+
+/* 3. Terabox (Blue) */
+.btn-terabox { 
+    background-color: #0288d1; 
+    color: white; 
+}
+.btn-terabox:hover { 
+    background-color: #0277bd; 
+}
+/* search bar */
+#searchInput {
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+     margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    #searchInput { 
+        width: 200px; /* Mobile par thoda chota dikhega */
+    }
+}
+/* =========================================
+   NO RESULT FOUND MESSAGE
+========================================= */
+.no-result-msg {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ff5722; /* Orange color taaki highlight ho */
+    margin: 50px 0;
+    width: 100%;
+}
