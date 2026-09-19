@@ -1,4 +1,4 @@
-    <!-- ================= JAVASCRIPT ANIMATION ================= -->
+
         document.addEventListener("DOMContentLoaded", function() {
             const cards = document.querySelectorAll('.movie-card');
             
