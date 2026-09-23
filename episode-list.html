@@ -47,7 +47,8 @@
             modeEl.innerText = userType === 'download' ? 'Mode: Fast Server (Download)' : 'Mode: Watch Live (Stream)';
             
             // Dummy data: Maan lo is anime ke 12 episodes hain (isko baad me database/array se link kar sakte hain)
-            const totalEpisodes = 12; 
+            // Ye line URL se total episodes padhegi (agar nahi mile toh default 12 manegi)
+            const totalEpisodes = parseInt(urlParams.get('episodes')) || 12; 
             const container = document.getElementById('episodeContainer');
 
             for (let i = 1; i <= totalEpisodes; i++) {
