@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download/Stream - AnimeBanda</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .final-container { 
+            max-width: 600px; margin: 40px auto; text-align: center; 
+            background: #1a1a1a; padding: 30px; border-radius: 10px; color: white;
+        }
+        .final-title { margin-bottom: 20px; color: #ff9800; }
+        
+        /* Final Buttons Styling */
+        .link-btn {
+            display: block; width: 100%; padding: 12px; margin: 10px 0;
+            border-radius: 5px; font-weight: bold; font-size: 16px;
+            color: white; text-decoration: none; cursor: pointer; border: none;
+        }
+        .btn-pixeldrain { background-color: #e67e22; } /* Orange */
+        .btn-gofile { background-color: #2980b9; }    /* Blue */
+        .btn-streamtape { background-color: #8e44ad; } /* Purple */
+        .btn-terabox { background-color: #007bff; }    /* Light Blue */
+        
+        .ad-space { margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+    <div class="final-container">
+        <h2 class="final-title" id="finalTitle">Loading Links...</h2>
+
+        <!-- ADSTERRA AD 1: NATIVE BANNER (1:2) -->
+        <div class="ad-space">
+            <!-- Yahan Native Banner Code Paste Karein -->
+        </div>
+
+        <!-- Yahan JavaScript automatically buttons generate karega -->
+        <div id="buttonContainer">
+            <!-- Buttons will appear here -->
+        </div>
+
+        <!-- ADSTERRA AD 2: 320x50 BANNER -->
+        <div class="ad-space">
+            <!-- Yahan 320x50 Banner Code Paste Karein -->
+        </div>
+    </div>
+
+    <script>
+        // 1. Fetch parameters from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const animeId = urlParams.get('anime'); // e.g., jujutsu_kaisen
+        const epNum = urlParams.get('ep');      // e.g., 1
+        const userType = urlParams.get('type'); // e.g., download or stream
+
+        // 2. Yahan Tumhara 'Database' Hoga (Apne actual links yahan daalna)
+        const animeDatabase = {
+            "jujutsu_kaisen": {
+                "1": {
+                    "download": {
+                        "Pixeldrain": "https://pixeldrain.com/u/example1",
+                        "Gofile": "https://gofile.io/d/example1"
+                    },
+                    "stream": {
+                        "Streamtape": "https://streamtape.com/v/example1",
+                        "Terabox": "https://terabox.app/s/example1"
+                    }
+                },
+                "2": {
+                    "download": {
+                        "Pixeldrain": "https://pixeldrain.com/u/example2",
+                        "Gofile": "https://gofile.io/d/example2"
+                    },
+                    "stream": {
+                        "Streamtape": "https://streamtape.com/v/example2",
+                        "Terabox": "https://terabox.app/s/example2"
+                    }
+                }
+            }
+            // Aise hi aur anime aur episodes add karte jana
+        };
+
+        // 3. Page update karne ka logic
+        const titleEl = document.getElementById('finalTitle');
+        const btnContainer = document.getElementById('buttonContainer');
+
+        if (animeId && epNum && userType && animeDatabase[animeId] && animeDatabase[animeId][epNum]) {
+            
+            // Set Title
+            titleEl.innerText = `Episode ${epNum} - ${userType === 'download' ? 'Download Links' : 'Watch Live'}`;
+            
+            // Get correct links based on user choice (download or stream)
+            const links = animeDatabase[animeId][epNum][userType];
+            
+            // Generate Buttons dynamically
+            for (const [serverName, url] of Object.entries(links)) {
+                const btn = document.createElement('a');
+                btn.href = url;
+                btn.target = "_blank"; // Naye tab me kholne ke liye
+                btn.innerText = `Server: ${serverName}`;
+                
+                // Assign correct CSS class based on server name
+                if(serverName === 'Pixeldrain') btn.className = 'link-btn btn-pixeldrain';
+                if(serverName === 'Gofile') btn.className = 'link-btn btn-gofile';
+                if(serverName === 'Streamtape') btn.className = 'link-btn btn-streamtape';
+                if(serverName === 'Terabox') btn.className = 'link-btn btn-terabox';
+                
+                btnContainer.appendChild(btn);
+            }
+        } else {
+            titleEl.innerText = "Error: Links Not Found!";
+            titleEl.style.color = "red";
+            btnContainer.innerHTML = "<p>Sorry, the links for this episode are not available yet.</p>";
+        }
+    </script>
+</body>
+</html>
