@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Episode - AnimeBanda</title>
+    <!-- TUMHARI PURANI CSS FILE YAHA LINK KAR LENA TAARKI DESIGN MATCH KARE -->
+     <link rel="stylesheet" href="style.css">
+    <style>
+        body { background-color: #121212; color: white; font-family: Arial, sans-serif; text-align: center; }
+        .container { max-width: 800px; margin: 20px auto; padding: 20px; }
+        .episode-grid { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
+        .ep-btn { 
+            background: #ff9800; color: white; padding: 10px 20px; text-decoration: none; 
+            border-radius: 5px; font-weight: bold; cursor: pointer; border: none; min-width: 60px;
+        }
+        .ep-btn:hover { background: #e68a00; }
+        .stream-mode { background: #dc3545; }
+        .stream-mode:hover { background: #c82333; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Dynamic Title Aayega Yahan -->
+        <h2 id="pageTitle">Loading Episodes...</h2>
+        <p id="modeText" style="color: #aaaaaa;"></p>
+
+        <!-- Yahan episodes ke buttons JavaScript se auto-generate honge -->
+        <div class="episode-grid" id="episodeContainer">
+            <!-- Buttons will appear here -->
+        </div>
+    </div>
+
+    <script>
+        // URL se data nikalne ka logic (?anime=naruto&type=stream)
+        const urlParams = new URLSearchParams(window.location.search);
+        const animeId = urlParams.get('anime');
+        const userType = urlParams.get('type'); // 'download' ya 'stream'
+
+        // Page ka title aur text set karna
+        const titleEl = document.getElementById('pageTitle');
+        const modeEl = document.getElementById('modeText');
+        
+        if(animeId && userType) {
+            titleEl.innerText = `Select Episode for ${animeId.toUpperCase()}`;
+            modeEl.innerText = userType === 'download' ? 'Mode: Fast Server (Download)' : 'Mode: Watch Live (Stream)';
+            
+            // Dummy data: Maan lo is anime ke 12 episodes hain (isko baad me database/array se link kar sakte hain)
+            const totalEpisodes = 12; 
+            const container = document.getElementById('episodeContainer');
+
+            for (let i = 1; i <= totalEpisodes; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = `EP ${i}`;
+                btn.className = `ep-btn ${userType === 'stream' ? 'stream-mode' : ''}`;
+                
+                // Jab user episode par click karega toh BRIDGE page par jayega data ke sath
+                btn.onclick = function() {
+                    window.location.href = `bridge.html?anime=${animeId}&ep=${i}&type=${userType}`;
+                };
+                
+                container.appendChild(btn);
+            }
+        } else {
+            titleEl.innerText = "Error: Anime Not Found!";
+            modeEl.innerText = "Please go back to the homepage and select an anime.";
+        }
+    </script>
+</body>
+</html>
