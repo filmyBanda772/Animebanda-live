@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Wait... - AnimeBanda</title>
+    <!-- Tumhari purani CSS file link -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .bridge-container { 
+            max-width: 600px; margin: 40px auto; text-align: center; 
+            background: #1a1a1a; padding: 30px; border-radius: 10px; color: white;
+        }
+        .timer-text { font-size: 20px; font-weight: bold; color: #ff9800; margin: 20px 0; }
+        .continue-btn { 
+            background: #28a745; color: white; padding: 15px 30px; font-size: 18px; 
+            border: none; border-radius: 5px; cursor: pointer; display: none; width: 100%; font-weight: bold;
+        }
+        .continue-btn:hover { background: #218838; }
+        .ad-space { margin: 20px 0; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="bridge-container">
+        <h2 id="bridgeTitle">Verifying Link...</h2>
+        
+        <!-- ADSTERRA AD 1: NATIVE BANNER (1:2) -->
+        <div class="ad-space">
+            <!-- Yahan apna Native Banner wala script paste karna -->
+        </div>
+
+        <!-- 5-Second Timer & Button -->
+        <div class="timer-text" id="timer">Please wait <span id="timeCount">5</span> seconds...</div>
+        <button class="continue-btn" id="continueBtn" onclick="goToFinalPage()">Verify & Continue ➡️</button>
+
+        <!-- ADSTERRA AD 2: 320x50 BANNER -->
+        <div class="ad-space">
+            <!-- Yahan apna 320x50 wala Banner script paste karna -->
+        </div>
+    </div>
+
+    <script>
+        // 1. URL se data fetch karna (e.g., ?anime=jujutsu_kaisen&ep=1&type=download)
+        const urlParams = new URLSearchParams(window.location.search);
+        const animeId = urlParams.get('anime');
+        const epNum = urlParams.get('ep');
+        const userType = urlParams.get('type');
+
+        // Page par episode number dikhana
+        if(epNum) {
+            document.getElementById('bridgeTitle').innerText = `Preparing Episode ${epNum}`;
+        }
+
+        // 2. 5-Second Timer Logic
+        let timeLeft = 5;
+        const timerEl = document.getElementById('timeCount');
+        const timerText = document.getElementById('timer');
+        const btn = document.getElementById('continueBtn');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            timerEl.innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerText.style.display = "none"; // Timer chupao
+                btn.style.display = "block";      // Button dikhao
+            }
+        }, 1000);
+
+        // 3. Final Page Par Bhejna
+        function goToFinalPage() {
+            window.location.href = `final-links.html?anime=${animeId}&ep=${epNum}&type=${userType}`;
+        }
+    </script>
+</body>
+</html>
