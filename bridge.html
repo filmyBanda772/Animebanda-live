@@ -4,74 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Please Wait... - AnimeBanda</title>
-    <!-- Tumhari purani CSS file link -->
     <link rel="stylesheet" href="style.css">
     <style>
-        .bridge-container { 
-            max-width: 600px; margin: 40px auto; text-align: center; 
-            background: #1a1a1a; padding: 30px; border-radius: 10px; color: white;
-        }
+        .bridge-container { max-width: 600px; margin: 40px auto; text-align: center; background: #1a1a1a; padding: 30px; border-radius: 10px; color: white; }
         .timer-text { font-size: 20px; font-weight: bold; color: #ff9800; margin: 20px 0; }
-        .continue-btn { 
-            background: #28a745; color: white; padding: 15px 30px; font-size: 18px; 
-            border: none; border-radius: 5px; cursor: pointer; display: none; width: 100%; font-weight: bold;
-        }
+        .continue-btn { background: #28a745; color: white; padding: 15px 30px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
         .continue-btn:hover { background: #218838; }
-        .ad-space { margin: 20px 0; padding: 10px; }
+        .ad-space { margin: 20px 0; padding: 10px; min-height: 50px; background: #222; } /* Ad placeholder */
+        .spacer { height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; } /* Scroll ke liye lamba space */
     </style>
 </head>
 <body>
+    <!-- Social Bar Script yahan head ya body me dal dena -->
 
     <div class="bridge-container">
         <h2 id="bridgeTitle">Verifying Link...</h2>
         
-        <!-- ADSTERRA AD 1: NATIVE BANNER (1:2) -->
-        <div class="ad-space">
-            <!-- Yahan apna Native Banner wala script paste karna -->
-        </div>
+        <!-- Native Banner Ad -->
+        <div class="ad-space"><script async="async" data-cfasync="false" src="https://mausoleumpoetrywrench.com/83d49701eaeb6fa7a2cc25d20b3a43d5/invoke.js"></script>
+<div id="container-83d49701eaeb6fa7a2cc25d20b3a43d5"></div></div>
 
-        <!-- 5-Second Timer & Button -->
         <div class="timer-text" id="timer">Please wait <span id="timeCount">5</span> seconds...</div>
-        <button class="continue-btn" id="continueBtn" onclick="goToFinalPage()">Verify & Continue ➡️</button>
+        
+        <!-- Pehla Button (Timer ke baad aayega) -->
+        <button class="continue-btn" id="verifyBtn" style="display: none;" onclick="verifyStep1()">Verify & Continue ➡️</button>
 
-        <!-- ADSTERRA AD 2: 320x50 BANNER -->
-        <div class="ad-space">
-            <!-- Yahan apna 320x50 wala Banner script paste karna -->
-        </div>
+        <!-- Banner Ad -->
+        <div class="ad-space"><script>
+  atOptions = {
+    'key' : 'fdebd9fd35a0bc0d79229196e7e4fe57',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://mausoleumpoetrywrench.com/fdebd9fd35a0bc0d79229196e7e4fe57/invoke.js"></script></div>
+    </div>
+
+    <!-- Scroll karwane ke liye lamba gap aur Dusra Button -->
+    <div class="spacer" id="step2Container" style="display: none;">
+        <!-- Yahan beech me bhi ek Native Ad laga sakte ho -->
+        <div class="ad-space" style="width: 100%; max-width: 600px;"><script>
+  atOptions = {
+    'key' : 'c1df239ab6fac179543cb086e4314511',
+    'format' : 'iframe',
+    'height' : 60,
+    'width' : 468,
+    'params' : {}
+  };
+</script>
+<script src="https://mausoleumpoetrywrench.com/c1df239ab6fac179543cb086e4314511/invoke.js"></script></div>
+        
+        <button class="continue-btn" style="max-width: 600px; background: #007bff;" onclick="goToFinalPage()">Click Here to Continue ➡️</button>
     </div>
 
     <script>
-        // 1. URL se data fetch karna (e.g., ?anime=jujutsu_kaisen&ep=1&type=download)
         const urlParams = new URLSearchParams(window.location.search);
         const animeId = urlParams.get('anime');
         const epNum = urlParams.get('ep');
         const userType = urlParams.get('type');
 
-        // Page par episode number dikhana
-        if(epNum) {
-            document.getElementById('bridgeTitle').innerText = `Preparing Episode ${epNum}`;
-        }
+        if(epNum) document.getElementById('bridgeTitle').innerText = `Preparing Episode ${epNum}`;
 
-        // 2. 5-Second Timer Logic
         let timeLeft = 5;
         const timerEl = document.getElementById('timeCount');
         const timerText = document.getElementById('timer');
-        const btn = document.getElementById('continueBtn');
+        const verifyBtn = document.getElementById('verifyBtn');
 
         const countdown = setInterval(() => {
             timeLeft--;
             timerEl.innerText = timeLeft;
             if (timeLeft <= 0) {
                 clearInterval(countdown);
-                timerText.style.display = "none"; // Timer chupao
-                btn.style.display = "block";      // Button dikhao
+                timerText.style.display = "none";
+                verifyBtn.style.display = "block";
             }
         }, 1000);
 
-        // 3. Final Page Par Bhejna
+        let smartlinkOpened = false;
+
+        function verifyStep1() {
+            // 1-Time Smartlink Logic
+            if (!smartlinkOpened) {
+                window.open('https://mausoleumpoetrywrench.com/v41vpmfjek?key=919855f141d098f06c83a0b64cd7e643', '_blank');
+                smartlinkOpened = true;
+            }
+            
+            // Niche wala section show karo aur wahan scroll karo
+            const step2 = document.getElementById('step2Container');
+            step2.style.display = 'flex';
+            step2.scrollIntoView({ behavior: 'smooth' });
+            
+            // Button ka text change kar do taaki user dobara na dabaye
+            verifyBtn.innerText = "Scroll Down 👇";
+            verifyBtn.style.background = "#555";
+        }
+
         function goToFinalPage() {
-            window.location.href = `final-links.html?anime=${animeId}&ep=${epNum}&type=${userType}`;
+            // Final page ko naye tab (new page form) me open karna
+            window.open(`final-links.html?anime=${animeId}&ep=${epNum}&type=${userType}`, '_blank');
         }
     </script>
+    <script src="https://mausoleumpoetrywrench.com/d9/e8/88/d9e888d9286688250c2d311ade158943.js"></script>
 </body>
 </html>
