@@ -32,8 +32,10 @@
         <h2 class="final-title" id="finalTitle">Loading Links...</h2>
 
         <!-- ADSTERRA AD 1: NATIVE BANNER (1:2) -->
-        <div class="ad-space">
+        <div class="ad-space" style="text-align: center; margin-bottom: 20px;">
             <!-- Yahan Native Banner Code Paste Karein -->
+             <script async="async" data-cfasync="false" src="https://mausoleumpoetrywrench.com/83d49701eaeb6fa7a2cc25d20b3a43d5/invoke.js"></script>
+<div id="container-83d49701eaeb6fa7a2cc25d20b3a43d5"></div>
         </div>
 
         <!-- Yahan JavaScript automatically buttons generate karega -->
@@ -42,8 +44,18 @@
         </div>
 
         <!-- ADSTERRA AD 2: 320x50 BANNER -->
-        <div class="ad-space">
+        <div class="ad-space" style="text-align: center; margin-top: 20px;">
             <!-- Yahan 320x50 Banner Code Paste Karein -->
+             <script>
+  atOptions = {
+    'key' : 'fdebd9fd35a0bc0d79229196e7e4fe57',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://mausoleumpoetrywrench.com/fdebd9fd35a0bc0d79229196e7e4fe57/invoke.js"></script>
         </div>
     </div>
 
@@ -116,18 +128,34 @@
             // Get correct links based on user choice (download or stream)
             const links = animeDatabase[animeId][epNum][userType];
             
+            let popunderShown = false; // Flag to track 1-time click
+
             // Generate Buttons dynamically
             for (const [serverName, url] of Object.entries(links)) {
                 const btn = document.createElement('a');
-                btn.href = url;
-                btn.target = "_blank"; // Naye tab me kholne ke liye
+                btn.href = "#"; 
+                btn.target = "_blank"; 
                 btn.innerText = `Server: ${serverName}`;
                 
-                // Assign correct CSS class based on server name
+                // Assign correct CSS class
                 if(serverName === 'Pixeldrain') btn.className = 'link-btn btn-pixeldrain';
                 if(serverName === 'Gofile') btn.className = 'link-btn btn-gofile';
                 if(serverName === 'Streamtape') btn.className = 'link-btn btn-streamtape';
                 if(serverName === 'Terabox') btn.className = 'link-btn btn-terabox';
+                
+                // Click Logic (Smartlink + Actual Link)
+                btn.onclick = function(event) {
+                    event.preventDefault(); // Page reload hone se rokne ke liye
+                    
+                    if (!popunderShown) {
+                        // Pehli baar click hone par tumhara SMARTLINK naye tab me khulega
+                        window.open('https://mausoleumpoetrywrench.com/v41vpmfjek?key=919855f141d098f06c83a0b64cd7e643', '_blank');
+                        popunderShown = true;
+                    } else {
+                        // Dusri baar usi button par click hone par actual movie/episode link khulega
+                        window.open(url, '_blank');
+                    }
+                };
                 
                 btnContainer.appendChild(btn);
             }
@@ -137,5 +165,6 @@
             btnContainer.innerHTML = "<p>Sorry, the links for this episode are not available yet.</p>";
         }
     </script>
+    <script src="https://mausoleumpoetrywrench.com/d9/e8/88/d9e888d9286688250c2d311ade158943.js"></script>
 </body>
 </html>
