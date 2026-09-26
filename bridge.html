@@ -10,13 +10,12 @@
         .timer-text { font-size: 20px; font-weight: bold; color: #ff9800; margin: 20px 0; }
         .continue-btn { background: #28a745; color: white; padding: 15px 30px; font-size: 18px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
         .continue-btn:hover { background: #218838; }
-        .ad-space { margin: 20px 0; padding: 10px; min-height: 50px; background: #222; } /* Ad placeholder */
-        .spacer { height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; } /* Scroll ke liye lamba space */
+        .ad-space { margin: 20px 0; padding: 10px; min-height: 50px; background: #222; } 
+        .spacer { height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; } 
     </style>
 </head>
 <body>
-    <!-- Social Bar Script yahan head ya body me dal dena -->
-
+    
     <div class="bridge-container">
         <h2 id="bridgeTitle">Verifying Link...</h2>
         
@@ -42,12 +41,10 @@
 <script src="https://mausoleumpoetrywrench.com/fdebd9fd35a0bc0d79229196e7e4fe57/invoke.js"></script></div>
     </div>
 
-    <!-- Scroll karwane ke liye lamba gap aur Dusra Button (HTML Hissa) -->
+    <!-- Scroll karwane ke liye lamba gap aur Dusra Button -->
     <div class="spacer" id="step2Container" style="display: none; flex-direction: column; justify-content: space-evenly; align-items: center; min-height: 100vh;">
         
-        <!-- YAHAN BADA AD AAYEGA JO KHALI JAGAH BHAREGA -->
         <div style="margin: 20px 0; width: 100%; text-align: center;">
-            <!-- ADSTERRA KA NAYA 300x250 SCRIPT YAHAN PASTE KARO -->
              <script>
   atOptions = {
     'key' : '19a91b4780e465d335fa7eac1d53d033',
@@ -62,9 +59,7 @@
 
         <!-- Niche Wala Section -->
         <div style="width: 100%; text-align: center;">
-            <!-- Tumhara existing 320x50 Banner script yahan aayega -->
             <div class="ad-space" style="margin-bottom: 15px;">
-                <!-- apna 320x50 (ya 468x60) wala ad script yahan dalna -->
                  <script>
   atOptions = {
     'key' : 'fdebd9fd35a0bc0d79229196e7e4fe57',
@@ -83,7 +78,9 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const animeId = urlParams.get('anime');
+        
+        // ZAROORI CHANGE 1: 'anime' ki jagah 'id' dhoondhna hai taaki Anime + Web Series dono chalein
+        const videoId = urlParams.get('id') || urlParams.get('anime'); // Fallback 'anime' just in case
         const epNum = urlParams.get('ep');
         const userType = urlParams.get('type');
 
@@ -124,8 +121,8 @@
         }
 
         function goToFinalPage() {
-            // Final page ko naye tab (new page form) me open karna
-            window.open(`final-links.html?anime=${animeId}&ep=${epNum}&type=${userType}`, '_blank');
+            // ZAROORI CHANGE 2: Final page par ab ?id bhejenge, ?anime nahi
+            window.open(`final-links.html?id=${videoId}&ep=${epNum}&type=${userType}`, '_blank');
         }
     </script>
     <script src="https://mausoleumpoetrywrench.com/d9/e8/88/d9e888d9286688250c2d311ade158943.js"></script>

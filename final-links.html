@@ -29,13 +29,13 @@
 <body>
 
     <div class="final-container">
+        <!-- Dynamic Title Yahan Aayega -->
         <h2 class="final-title" id="finalTitle">Loading Links...</h2>
 
         <!-- ADSTERRA AD 1: NATIVE BANNER (1:2) -->
         <div class="ad-space" style="text-align: center; margin-bottom: 20px;">
-            <!-- Yahan Native Banner Code Paste Karein -->
              <script async="async" data-cfasync="false" src="https://mausoleumpoetrywrench.com/83d49701eaeb6fa7a2cc25d20b3a43d5/invoke.js"></script>
-<div id="container-83d49701eaeb6fa7a2cc25d20b3a43d5"></div>
+             <div id="container-83d49701eaeb6fa7a2cc25d20b3a43d5"></div>
         </div>
 
         <!-- Yahan JavaScript automatically buttons generate karega -->
@@ -45,28 +45,31 @@
 
         <!-- ADSTERRA AD 2: 320x50 BANNER -->
         <div class="ad-space" style="text-align: center; margin-top: 20px;">
-            <!-- Yahan 320x50 Banner Code Paste Karein -->
              <script>
-  atOptions = {
-    'key' : 'fdebd9fd35a0bc0d79229196e7e4fe57',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-<script src="https://mausoleumpoetrywrench.com/fdebd9fd35a0bc0d79229196e7e4fe57/invoke.js"></script>
+                atOptions = {
+                    'key' : 'fdebd9fd35a0bc0d79229196e7e4fe57',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://mausoleumpoetrywrench.com/fdebd9fd35a0bc0d79229196e7e4fe57/invoke.js"></script>
         </div>
     </div>
+
+    <!-- ZAROORI CHANGE 1: Database files ko script se upar rakho (Sahi file name ke sath) -->
+    <script src="script.js"></script>     
+    <script src="webseries.js"></script>  
 
     <script>
         // 1. Fetch parameters from URL
         const urlParams = new URLSearchParams(window.location.search);
-        const animeId = urlParams.get('anime'); // e.g., jujutsu_kaisen
+        const videoId = urlParams.get('id') || urlParams.get('anime'); // Ab dono ID pakad lega
         const epNum = urlParams.get('ep');      // e.g., 1
         const userType = urlParams.get('type'); // e.g., download or stream
 
-        // 2. Yahan Tumhara 'Database' Hoga (Apne actual links yahan daalna)
+        // 2. Yahan Tumhara 'Database' Hoga (Links wala)
         const animeDatabase = {
             "jujutsu_kaisen": {
                 "1": {
@@ -100,35 +103,47 @@
                         "Streamtape": "https://streamtape.com/v/example2",
                         "Terabox": "https://terabox.app/s/example2"  
                     }
-                },
-                "2": {
+                }
+            },
+            "ninja2": {
+                "1": {
                     "download": {
-                      "Pixeldrain": "https://pixeldrain.com/u/example1",
+                        "Pixeldrain": "https://pixeldrain.com/u/example1",
                         "Gofile": "https://gofile.io/d/example1"
                     },
                     "stream": {
                         "Streamtape": "https://streamtape.com/v/example2",
                         "Terabox": "https://terabox.app/s/example2"  
-                    }   
-                    
+                    }
                 }
-            },
-            // Aise hi aur anime aur episodes add karte jana
+            }
         };
 
         // 3. Page update karne ka logic
         const titleEl = document.getElementById('finalTitle');
         const btnContainer = document.getElementById('buttonContainer');
 
-        if (animeId && epNum && userType && animeDatabase[animeId] && animeDatabase[animeId][epNum]) {
+        if (videoId && epNum && userType && animeDatabase[videoId] && animeDatabase[videoId][epNum]) {
             
-            // Set Title
-            titleEl.innerText = `Episode ${epNum} - ${userType === 'download' ? 'Download Links' : 'Watch Live'}`;
+            // ZAROORI CHANGE 2: SMART TITLE LOGIC - Anime aur Web Series dono me dhundhna
+            let videoObj = null;
+            if (typeof videoDB !== 'undefined') {
+                videoObj = videoDB.find(v => v.id === videoId); // Anime me dhundho
+            }
+            if (!videoObj && typeof webSeriesDB !== 'undefined') {
+                videoObj = webSeriesDB.find(v => v.id === videoId); // Web Series me dhundho
+            }
+
+            // Asli naam mile toh wo dikhao, varna default ID dikhao
+            let displayName = videoObj ? videoObj.title : videoId.toUpperCase();
             
-            // Get correct links based on user choice (download or stream)
-            const links = animeDatabase[animeId][epNum][userType];
+            // Set Title dynamically (Eg: "Jujutsu Kaisen - Episode 1 - Download Links")
+            titleEl.innerText = `${displayName} | Episode ${epNum} - ${userType === 'download' ? 'Download Links' : 'Watch Live'}`;
             
-            let popunderShown = false; // Flag to track 1-time click
+            // Get correct links based on user choice
+            const links = animeDatabase[videoId][epNum][userType];
+            
+            let popunderShown = false; 
 
             // Generate Buttons dynamically
             for (const [serverName, url] of Object.entries(links)) {
@@ -137,22 +152,19 @@
                 btn.target = "_blank"; 
                 btn.innerText = `Server: ${serverName}`;
                 
-                // Assign correct CSS class
+                // Assign CSS classes based on server name
                 if(serverName === 'Pixeldrain') btn.className = 'link-btn btn-pixeldrain';
                 if(serverName === 'Gofile') btn.className = 'link-btn btn-gofile';
                 if(serverName === 'Streamtape') btn.className = 'link-btn btn-streamtape';
                 if(serverName === 'Terabox') btn.className = 'link-btn btn-terabox';
                 
-                // Click Logic (Smartlink + Actual Link)
+                // Click Logic
                 btn.onclick = function(event) {
-                    event.preventDefault(); // Page reload hone se rokne ke liye
-                    
+                    event.preventDefault(); 
                     if (!popunderShown) {
-                        // Pehli baar click hone par tumhara SMARTLINK naye tab me khulega
                         window.open('https://mausoleumpoetrywrench.com/v41vpmfjek?key=919855f141d098f06c83a0b64cd7e643', '_blank');
                         popunderShown = true;
                     } else {
-                        // Dusri baar usi button par click hone par actual movie/episode link khulega
                         window.open(url, '_blank');
                     }
                 };
@@ -165,6 +177,7 @@
             btnContainer.innerHTML = "<p>Sorry, the links for this episode are not available yet.</p>";
         }
     </script>
+    
     <script src="https://mausoleumpoetrywrench.com/d9/e8/88/d9e888d9286688250c2d311ade158943.js"></script>
 </body>
 </html>

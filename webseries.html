@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ================= META TAGS ================= -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Series - AnimeBanda </title>
+
+    <!-- ================= CSS STYLE link================= -->
+   <link rel="stylesheet" href="style.css">
+     
+ <script src="https://mausoleumpoetrywrench.com/2d/a9/44/2da944a44cf8a74f8394df6b94237657.js"></script>      
+</head>
+<body>
+
+    <!-- ================= HEADER SECTION ================= -->
+    <header class="top-header">
+        <div class="logo-container">
+            <h1 class="site-title">AnimeBanda</h1>
+            <p class="site-tagline">Your Ultimate Anime Destination</p>
+            
+            <div class="partner-buttons">
+                <a href="https://filmybanda772.github.io/moviesite/" target="_blank" class="btn-partner filmy-btn">🎬 FilmyBanda Movies</a>
+                <a href="#" target="_blank" class="btn-partner dummy-btn">🔥 Coming Soon</a>
+            </div>
+        </div>
+        <!-- Search Bar -->
+        <input type="text" id="searchInput" placeholder="Type web series name and press..." onkeydown="searchVideo(event)">
+    </header>
+
+    <!-- ================= NAVIGATION MENU SECTION ================= -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="webseries.html" style="color: #ff0000; text-decoration: none;"> 🔥 Web Series </a></li>
+            <li><a href="https://t.me/+lkn1fC5lkKo4NDc9" target="_blank" class="btn-partner telegram-btn"> Join Telegram!</a></li>
+        </ul>
+    </nav>
+
+    <!-- ================= MAIN CONTENT SECTION ================= -->
+    <main class="main-content">
+        <h2>Latest Web Series ‖</h2>
+        
+        <!-- "No result Found" Message -->
+        <div id="noResultMsg" class="no-result-msg" style="display: none;">No result Found!</div>
+        
+        <!-- ================= WEB SERIES CARDS CONTAINER ================= -->
+        <!-- Yahan par webseries.js apna data automatically bharega -->
+        <div class="movies-container" id="videoGrid">
+            
+            <!-- Cards will be injected here by Javascript -->
+
+        </div> 
+        <!-- END OF movies-container -->
+
+        <!-- PAGINATION BAR -->
+        <div class="pagination">
+            <a href="webseries.html" class="active">1</a>
+            <!-- Tum yahan web series ke aage ke pages add kar sakte ho -->
+        </div>
+    </main>
+
+    <!-- ZAROORI CHANGE: Sahi JS file ka naam -->
+    <script src="webseries.js"></script>
+    <script src="https://mausoleumpoetrywrench.com/d9/e8/88/d9e888d9286688250c2d311ade158943.js"></script>
+</body>
+</html>

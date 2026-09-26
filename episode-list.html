@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select Episode - AnimeBanda</title>
-    <!-- TUMHARI PURANI CSS FILE YAHA LINK KAR LENA TAARKI DESIGN MATCH KARE -->
-     <link rel="stylesheet" href="style.css">
+    <!-- TUMHARI PURANI CSS FILE -->
+    <link rel="stylesheet" href="style.css">
     <style>
         body { background-color: #121212; color: white; font-family: Arial, sans-serif; text-align: center; }
         .container { max-width: 800px; margin: 20px auto; padding: 20px; }
@@ -22,69 +22,99 @@
 <body>
 
     <div class="container">
-        <!-- Dynamic Title Aayega Yahan -->
+        <!-- Dynamic Title Yahan Aayega -->
         <h2 id="pageTitle">Loading Episodes...</h2>
         <p id="modeText" style="color: #aaaaaa;"></p>
-<div style="margin: 20px 0; text-align: center;">
-        <!-- Apna Native Banner script yahan paste karo -->
-         <script async="async" data-cfasync="false" src="https://mausoleumpoetrywrench.com/83d49701eaeb6fa7a2cc25d20b3a43d5/invoke.js"></script>
-<div id="container-83d49701eaeb6fa7a2cc25d20b3a43d5"></div>
-    </div>
+        
+        <div style="margin: 20px 0; text-align: center;">
+            <!-- Apna Native Banner script -->
+            <script async="async" data-cfasync="false" src="https://mausoleumpoetrywrench.com/83d49701eaeb6fa7a2cc25d20b3a43d5/invoke.js"></script>
+            <div id="container-83d49701eaeb6fa7a2cc25d20b3a43d5"></div>
+        </div>
+
         <!-- Yahan episodes ke buttons JavaScript se auto-generate honge -->
         <div class="episode-grid" id="episodeContainer">
             <!-- Buttons will appear here -->
-              </div>
-              <div style="margin: 20px 0; text-align: center;">
-        <!-- Apna 320x50 Banner script yahan paste karo -->
-         <script>
-  atOptions = {
-    'key' : 'fdebd9fd35a0bc0d79229196e7e4fe57',
-    'format' : 'iframe',
-    'height' : 50,
-    'width' : 320,
-    'params' : {}
-  };
-</script>
-<script src="https://mausoleumpoetrywrench.com/fdebd9fd35a0bc0d79229196e7e4fe57/invoke.js"></script>
+        </div>
+
+        <div style="margin: 20px 0; text-align: center;">
+            <!-- Apna 320x50 Banner script -->
+            <script>
+                atOptions = {
+                    'key' : 'fdebd9fd35a0bc0d79229196e7e4fe57',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script src="https://mausoleumpoetrywrench.com/fdebd9fd35a0bc0d79229196e7e4fe57/invoke.js"></script>
+        </div>
     </div>
-    </div>
+
+    <!-- ZAROORI CHANGE 1: Database files ko upar load karna taaki main script unhe padh sake -->
+    <script src="script.js"></script>     
+    
+    <!-- YAHAN FIX KIYA: web-series.js ki jagah webseries.js (Sahi file name) -->
+    <script src="webseries.js"></script>  
 
     <script>
-        // URL se data nikalne ka logic (?anime=naruto&type=stream)
+        // ZAROORI CHANGE 2: 'anime' ki jagah 'id' use karna
         const urlParams = new URLSearchParams(window.location.search);
-        const animeId = urlParams.get('anime');
-        const userType = urlParams.get('type'); // 'download' ya 'stream'
+        const videoId = urlParams.get('id') || urlParams.get('anime'); // Backup ke liye anime bhi rakha hai
+        const userType = urlParams.get('type'); 
 
-        // Page ka title aur text set karna
         const titleEl = document.getElementById('pageTitle');
         const modeEl = document.getElementById('modeText');
         
-        if(animeId && userType) {
-            titleEl.innerText = `Select Episode for ${animeId.toUpperCase()}`;
+        if(videoId && userType) {
+            // ZAROORI CHANGE 3: SMART TITLE LOGIC YAHAN HAI
+            let video = null;
+            
+            // Check in Anime DB
+            if (typeof videoDB !== 'undefined') {
+                video = videoDB.find(v => v.id === videoId); 
+            }
+            
+            // If not found in Anime, Check in Web Series DB
+            if (!video && typeof webSeriesDB !== 'undefined') {
+                video = webSeriesDB.find(v => v.id === videoId); 
+            }
+
+            // Agar title mil gaya toh asli naam dikhao
+            if (video) {
+                titleEl.innerText = `Select Episode for ${video.title}`;
+            } else {
+                // Nahi mila toh ID (jaise JUJUTSU_KAISEN) dikhao
+                titleEl.innerText = `Select Episode for ${videoId.toUpperCase().replace(/_/g, ' ')}`; 
+            }
+
             modeEl.innerText = userType === 'download' ? 'Mode: Fast Server (Download)' : 'Mode: Watch Live (Stream)';
             
-            // Dummy data: Maan lo is anime ke 12 episodes hain (isko baad me database/array se link kar sakte hain)
-            // Ye line URL se total episodes padhegi (agar nahi mile toh default 12 manegi)
+            // URL se episodes ki counting lo, varna 12 man lo
             const totalEpisodes = parseInt(urlParams.get('episodes')) || 12; 
             const container = document.getElementById('episodeContainer');
 
+            // Generate buttons for each episode
             for (let i = 1; i <= totalEpisodes; i++) {
                 const btn = document.createElement('button');
                 btn.innerText = `EP ${i}`;
                 btn.className = `ep-btn ${userType === 'stream' ? 'stream-mode' : ''}`;
                 
-                // Jab user episode par click karega toh BRIDGE page par jayega data ke sath
+                // ZAROORI CHANGE 4: Bridge page par ab 'id' forward hoga (taaki aage ke page pe title aaye)
                 btn.onclick = function() {
-                    window.location.href = `bridge.html?anime=${animeId}&ep=${i}&type=${userType}`;
+                    window.location.href = `bridge.html?id=${videoId}&ep=${i}&type=${userType}`;
                 };
                 
                 container.appendChild(btn);
             }
         } else {
-            titleEl.innerText = "Error: Anime Not Found!";
-            modeEl.innerText = "Please go back to the homepage and select an anime.";
+            titleEl.innerText = "Error: Video Not Found!";
+            modeEl.innerText = "Please go back to the homepage and select an anime or web series.";
         }
     </script>
+    
+    <!-- Adsterra Popunder Script (Aakhiri File) -->
     <script src="https://mausoleumpoetrywrench.com/d9/e8/88/d9e888d9286688250c2d311ade158943.js"></script>
 </body>
 </html>
