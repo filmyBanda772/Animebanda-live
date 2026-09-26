@@ -3,7 +3,7 @@
 // ==========================================
 // Yahan apne sabhi anime ki ID aur unka Asli Title likhna hai
 const videoDB = [
-    { id: 'jujutsu_kaisen', title: 'Jujutsu Kaisen Season 1' },
+    { id: 'blue', title: 'Grand Blue Dreaming Season 3' },
     { id: 'ninja', title: 'Ninja Kamui' },
     { id: 'naruto_shippuden', title: 'Naruto Shippuden' },
     { id: 'demon_slayer', title: 'Demon Slayer' },
