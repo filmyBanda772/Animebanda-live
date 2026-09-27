@@ -204,11 +204,11 @@
 
 
 /* 3. Terabox (Blue) */
-.btn-terabox { 
+.btn-mixdrop { 
     background-color: #0288d1; 
     color: white; 
 }
-.btn-terabox:hover { 
+.btn-mixdrop:hover { 
     background-color: #0277bd; 
 }
 /* search bar */
