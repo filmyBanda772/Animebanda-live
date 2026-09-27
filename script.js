@@ -4,10 +4,10 @@
 // Yahan apne sabhi anime ki ID aur unka Asli Title likhna hai
 const videoDB = [
     { id: 'blue', title: 'Grand Blue Dreaming Season 3' },
-    { id: 'ninja', title: 'Ninja Kamui' },
+    { id: 'legend', title: 'I Became a Legend After My 10 Year-Long Last Stand' },
     { id: 'naruto_shippuden', title: 'Naruto Shippuden' },
     { id: 'demon_slayer', title: 'Demon Slayer' },
-    { id: 'ninja2', title: 'Ninja 2'}
+    { id: 'dating', title: 'Ninja 2'}
 ];
 
 // ==========================================
