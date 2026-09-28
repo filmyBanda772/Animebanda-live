@@ -7,7 +7,8 @@ const videoDB = [
     { id: 'legend', title: 'I Became a Legend After My 10 Year-Long Last Stand' },
     { id: 'naruto_shippuden', title: 'Naruto Shippuden' },
     { id: 'demon_slayer', title: 'Demon Slayer' },
-    { id: 'dating', title: 'Ninja 2'}
+    { id: 'dating', title: 'Trapped in a Dating Sim S1'},
+    { id: 'dating2', title: 'Trapped in a Dating Sim S2'}
 ];
 
 // ==========================================
