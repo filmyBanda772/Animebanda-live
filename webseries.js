@@ -1,17 +1,17 @@
-// 1. Web Series ka Database
+// 1. Web Series ka Database 
 const webSeriesDB = [
     { 
-        id: 'panchayat-s3', 
-        title: 'Panchayat Season 3', 
-        thumb: 'images/panchayat.jpg', 
-        episodes: 8 
+        id: 'lanterns-s1', 
+        title: 'Lanterns Season 1', 
+        thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMBMjkG6jtT6oBc2bjeV-WYGhLKDOP42iF54cmgr4d4g&s=10', 
+        episodes: 7 
     },
     { 
-        id: 'mirzapur-s3', 
-        title: 'Mirzapur Season 3', 
-        thumb: 'images/mirzapur.jpg', 
-        episodes: 10 
-    }
+        id: 'lucifier s1', 
+        title: 'Lucifier Season 1', 
+        thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZdVt4SF5acGc1A_wLhsfNczSL7gZS0e_pGXXYPtoDg&s=10', 
+        episodes: 13
+    },
 ];
 
 const wsGrid = document.getElementById('videoGrid');
