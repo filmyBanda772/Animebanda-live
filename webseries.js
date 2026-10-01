@@ -4,13 +4,19 @@ const webSeriesDB = [
         id: 'lanterns-s1', 
         title: 'Lanterns Season 1(2026)', 
         thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMBMjkG6jtT6oBc2bjeV-WYGhLKDOP42iF54cmgr4d4g&s=10', 
-        episodes: 7 
+        episodes: 8 
     },
     { 
         id: 'lucifier s1', 
         title: 'Lucifer Season 1(2016)', 
         thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZdVt4SF5acGc1A_wLhsfNczSL7gZS0e_pGXXYPtoDg&s=10', 
         episodes: 13
+    },
+    { 
+        id: 'adarsh s1', 
+        title: ' Adarsh Baal Vidyalaya ', 
+        thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL7joFn4c2dILHoLXyZBHcN0FO-GjNWs7Vf5iMtTfOnRDoGV6k6xmmlVOH_neF0aMwTg-pucaRZcN-Qbm1jMzEG5XCEXu_9eBbvXtgVPrEdA&s=10', 
+        episodes: 7
     },
 ];
 
