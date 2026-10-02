@@ -18,6 +18,9 @@ const webSeriesDB = [
         thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL7joFn4c2dILHoLXyZBHcN0FO-GjNWs7Vf5iMtTfOnRDoGV6k6xmmlVOH_neF0aMwTg-pucaRZcN-Qbm1jMzEG5XCEXu_9eBbvXtgVPrEdA&s=10', 
         episodes: 7
     },
+    { id: 'gram s1', title: 'Gram Chikitsalay (Season 1)', episodes: 5,
+      thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMCqLwFRQJLGKduEMPY1L6C5wzw7M83QTQH1FDvw2iNw&s=10'
+     }
 ];
 
 const wsGrid = document.getElementById('videoGrid');
