@@ -13,6 +13,12 @@ const webSeriesDB = [
         episodes: 13
     },
     { 
+        id: 'lucifier s2', 
+        title: 'Lucifer Season 2(2016)', 
+        thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpaCoapjHrlb3SJ0SQAa84d1gq-En0nRyPa9fHWVoW1xBD30xazOVKUsg&s=10', 
+        episodes: 18
+    },
+    { 
         id: 'adarsh s1', 
         title: ' Adarsh Baal Vidyalaya ', 
         thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL7joFn4c2dILHoLXyZBHcN0FO-GjNWs7Vf5iMtTfOnRDoGV6k6xmmlVOH_neF0aMwTg-pucaRZcN-Qbm1jMzEG5XCEXu_9eBbvXtgVPrEdA&s=10', 
