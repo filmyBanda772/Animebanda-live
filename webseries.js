@@ -26,7 +26,8 @@ const webSeriesDB = [
     },
     { id: 'gram s1', title: 'Gram Chikitsalay (Season 1)', episodes: 5,
       thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMCqLwFRQJLGKduEMPY1L6C5wzw7M83QTQH1FDvw2iNw&s=10'
-     }
+     },
+ { id: 'off s1', title: 'Off Campus (Season 1)', episodes: 8, thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThsGdzab6KY8MHEsGmvWpVDHYlT5nPfkI3z6iZLHLt8g&s=10' }    
 ];
 
 const wsGrid = document.getElementById('videoGrid');
