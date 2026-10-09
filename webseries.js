@@ -1,6 +1,6 @@
 // 1. Web Series ka Database 
 const webSeriesDB = [
-     { id: 'off campus s1', title: 'Off Campus (Season 1)', episodes: 8, thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThsGdzab6KY8MHEsGmvWpVDHYlT5nPfkI3z6iZLHLt8g&s=10' },
+     { id: 'off campus s1', title: 'Off Campus (18+ Season 1)', episodes: 8, thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThsGdzab6KY8MHEsGmvWpVDHYlT5nPfkI3z6iZLHLt8g&s=10' },
     {  id: 'lanterns-s1',  title: 'Lanterns Season 1(2026)', 
         thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMBMjkG6jtT6oBc2bjeV-WYGhLKDOP42iF54cmgr4d4g&s=10',  episodes: 8  },
     { id: 'lucifier s1',  title: 'Lucifer Season 1(2016)', 
