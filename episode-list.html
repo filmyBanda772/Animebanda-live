@@ -94,7 +94,9 @@
             // URL se episodes ki counting lo, varna 12 man lo
             const totalEpisodes = parseInt(urlParams.get('episodes')) || 12; 
             const container = document.getElementById('episodeContainer');
-
+            
+            // YAHAN VARIABLE ADD KARNA HAI
+            let smartlinkOpened = false;
             // Generate buttons for each episode
             for (let i = 1; i <= totalEpisodes; i++) {
                 const btn = document.createElement('button');
@@ -102,9 +104,15 @@
                 btn.className = `ep-btn ${userType === 'stream' ? 'stream-mode' : ''}`;
                 
                 // ZAROORI CHANGE 4: Bridge page par ab 'id' forward hoga (taaki aage ke page pe title aaye)
-                btn.onclick = function() {
-                    window.location.href = `bridge.html?id=${videoId}&ep=${i}&type=${userType}`;
-                };
+                btn.onclick = function(e) {
+    if (!smartlinkOpened) {
+        e.preventDefault(); // Pehle click par dusre page pe jane se rokega
+        window.open('https://mausoleumpoetrywrench.com/kjaq21748?key=5e3ddaec922a984631c54405a147b238', '_blank');
+        smartlinkOpened = true; 
+    } else {
+        window.location.href = `bridge.html?id=${videoId}&ep=${i}&type=${userType}`;
+    }
+};
                 
                 container.appendChild(btn);
             }
