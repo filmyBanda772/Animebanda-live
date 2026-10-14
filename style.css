@@ -232,7 +232,7 @@
     }
     
     .movie-card img { 
-        height: 180px; /* मोबाइल के लिए परफेक्ट हाइट */
+        height: 200px; /* मोबाइल के लिए परफेक्ट हाइट */
         width: 100%;
         object-fit: cover;
     }
