@@ -30,7 +30,7 @@ function loadWebSeries() {
                 <div class="movie-info">
                     <h3 class="movie-title">${vid.title}</h3>
                     <p class="movie-year">Hindi Audio</p>
-                    <div class="download-links" style="display: flex; gap: 10px; flex-direction: column;">
+                    <div class="download-links" style="display: flex; gap: 8px; flex-direction: column;">
                         <button class="btn-download btn-fast" style="border: none; cursor: pointer; width: 100%; font-family: inherit;" 
                                 onclick="window.open('episode-list.html?id=${vid.id}&type=download&episodes=${vid.episodes}', '_blank')">
                             ⚡ Fast Server
