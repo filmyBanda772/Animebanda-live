@@ -96,12 +96,12 @@
         }
         .movie-card img {
             width: 100%;
-            height: 300px;
+            height: 340px;
             object-fit: cover;
             border-bottom: 3px solid #333;
         }
         .movie-info { 
-            padding: 15px; 
+            padding: 10px; 
             text-align: center; 
         }
         .movie-title { 
@@ -175,7 +175,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-top: 15px;
+    margin-top: 8px;
     width: 100%;
 }
 
@@ -234,7 +234,7 @@
         padding: 15px; 
     }
     .movie-card img { 
-        height: 240px; /* मोबाइल के लिए परफेक्ट हाइट */
+        height: 250px; /* मोबाइल के लिए परफेक्ट हाइट */
         width: 100%;
         object-fit: cover;
     }
@@ -248,9 +248,13 @@
     }
     .movie-year { 
         font-size: 0.7rem; 
-        margin-bottom: 8px; 
+        margin-bottom: 6px; 
     }
-    
+    /* Ye naya block mobile me gap ko puri tarah khatam karega */
+    .download-links {
+        margin-top: 4px; /* Text aur buttons ke beech ka gap mobile par ekdum kam */
+        gap: 6px;
+    }
     /* मोबाइल पर बटन्स थोड़े छोटे और फिट रहें */
     .btn-download { 
         padding: 6px 0; 
