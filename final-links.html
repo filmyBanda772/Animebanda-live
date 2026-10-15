@@ -22,6 +22,7 @@
         .btn-gofile { background-color: #2980b9; }    /* Blue */
         .btn-streamtape { background-color: #8e44ad; } /* Purple */
         .btn-mixdrop { background-color: #007bff; }    /* Light Blue */
+        .btn-Vikingfile { background-color: crimson;}
         
         .ad-space { margin: 20px 0; }
     </style>
@@ -643,7 +644,28 @@
         "25": {"download": {"Pixeldrain": "https://pixeldrain.com/u/f6Mv8QQG", "Gofile": "https://gofile.io/d/DBa138vX"},
                  "stream": {"Streamtape": "https://streamtape.com/v/90zVD4ol1YIazXe/Blue.B0x.S01E25-720p-.HINDI_audio.-x264-animebanda.mkv.mp4", "Mixdrop": ""}},                                                                                                                                                                                                                             
     },
-   };
+   "family man S1":{"1": {"download": {"Pixeldrain": "https://pixeldrain.com/u/m6u6WJ1Z", "Vikingfile": "https://vikingfile.com/f/zianQDPwaG", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/eYggYjKx7AiYWyK/The.F%40mily.M%40n.S01E01.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},
+    "2": {"download": {"Pixeldrain": "https://pixeldrain.com/u/mYMzcHVq", "Vikingfile": "https://vikingfile.com/f/9L8S5dlJBJ", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/3xGVr9V4yRi6MA/The.F%40mily.M%40n.S01E02.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},
+    "3": {"download": {"Pixeldrain": "https://pixeldrain.com/u/aU7AR4Bm", "Vikingfile": "https://vikingfile.com/f/KPFVX6r7fn", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/vxGwgMgZwQt2wr/The.F%40mily.M%40n.S01E03.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},
+    "4": {"download": {"Pixeldrain": "https://pixeldrain.com/u/UofQA8fF", "Vikingfile": "https://vikingfile.com/f/5XktBx1TTy", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/eaDY4xGPvDuYdqw/The.F%40mily.M%40n.S01E04.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},
+    "5": {"download": {"Pixeldrain": "https://pixeldrain.com/u/4tHsV6d8", "Vikingfile": "", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/KkPgP6e72zU0V9O/The.F%40mily.M%40n.S01E05.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},
+    "6": {"download": {"Pixeldrain": "https://pixeldrain.com/u/g9MJi4mT", "Vikingfile": "", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/Oao3abwvgKIZrgZ/The.F%40mily.M%40n.S01E06.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},
+    "7": {"download": {"Pixeldrain": "https://pixeldrain.com/u/9wGotMbL", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/1WKa632LYPUewMm/The.F%40mily.M%40n.S01E07.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},
+    "8": {"download": {"Pixeldrain": "https://pixeldrain.com/u/NjWQZrFg", "Vikingfile": "", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/RgXjy29A8qIdWbB/The.F%40mily.M%40n.S01E08.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},
+    "9": {"download": {"Pixeldrain": "https://pixeldrain.com/u/k3sFHRu4", "Vikingfile": "", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/MkPoojr3K7FmR68/The.F%40mily.M%40n.S01E09.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},
+    "10": {"download": {"Pixeldrain": "https://pixeldrain.com/u/Rm6RgQkr", "Vikingfile": "", "Gofile": ""},
+        "stream": {"Streamtape": "https://streamtape.com/v/XYKP1rxZL9sBab/The.F%40mily.M%40n.S01E10.Hindi.720p.WEB-DL.x264.ESub-FilmyBanda.mkv.mp4", "Mixdrop": ""}},                         
+    },  
+};
 
         // 3. Page update karne ka logic
         const titleEl = document.getElementById('finalTitle');
@@ -683,6 +705,7 @@
                 if(serverName === 'Gofile') btn.className = 'link-btn btn-gofile';
                 if(serverName === 'Streamtape') btn.className = 'link-btn btn-streamtape';
                 if(serverName === 'Mixdrop') btn.className = 'link-btn btn-mixdrop';
+                if(serverName === 'Vikingfile') btn.className = 'link-btn btn-Vikingfile';
                 
                 // Click Logic
                 btn.onclick = function(event) {

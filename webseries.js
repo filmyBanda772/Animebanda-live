@@ -1,17 +1,12 @@
 // 1. Web Series ka Database 
 const webSeriesDB = [
-     { id: 'off campus s1', title: 'Off Campus (18+ Season 1)', episodes: 8, thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThsGdzab6KY8MHEsGmvWpVDHYlT5nPfkI3z6iZLHLt8g&s=10' },
-    {  id: 'lanterns-s1',  title: 'Lanterns Season 1(2026)', 
-        thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMBMjkG6jtT6oBc2bjeV-WYGhLKDOP42iF54cmgr4d4g&s=10',  episodes: 8  },
-    { id: 'lucifier s1',  title: 'Lucifer Season 1(2016)', 
-        thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZdVt4SF5acGc1A_wLhsfNczSL7gZS0e_pGXXYPtoDg&s=10',  episodes: 13},
-    {   id: 'lucifier s2',   title: 'Lucifer Season 2(2016)', 
-     thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpaCoapjHrlb3SJ0SQAa84d1gq-En0nRyPa9fHWVoW1xBD30xazOVKUsg&s=10', episodes: 18},
-    {   id: 'adarsh s1',   title: ' Adarsh Baal Vidyalaya ', 
-        thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL7joFn4c2dILHoLXyZBHcN0FO-GjNWs7Vf5iMtTfOnRDoGV6k6xmmlVOH_neF0aMwTg-pucaRZcN-Qbm1jMzEG5XCEXu_9eBbvXtgVPrEdA&s=10', 
-        episodes: 7 },
-    { id: 'gram s1', title: 'Gram Chikitsalay (Season 1)', episodes: 5,
-      thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMCqLwFRQJLGKduEMPY1L6C5wzw7M83QTQH1FDvw2iNw&s=10'},
+    {id: 'family man S1', title: 'The Family Man(Season 1)', episodes: 10, thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI8OLJ7IV4MCw6-45run2Fqq_n60st9hlMA69iQaaRuw&s=10'},
+    { id: 'lanterns-s1',  title: 'Lanterns Season 1(2026)', thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMBMjkG6jtT6oBc2bjeV-WYGhLKDOP42iF54cmgr4d4g&s=10',  episodes: 8  },
+    { id: 'gram s1', title: 'Gram Chikitsalay (Season 1)', episodes: 5, thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRMCqLwFRQJLGKduEMPY1L6C5wzw7M83QTQH1FDvw2iNw&s=10'},
+    { id: 'adarsh s1',   title: ' Adarsh Baal Vidyalaya ', episodes: 7, thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL7joFn4c2dILHoLXyZBHcN0FO-GjNWs7Vf5iMtTfOnRDoGV6k6xmmlVOH_neF0aMwTg-pucaRZcN-Qbm1jMzEG5XCEXu_9eBbvXtgVPrEdA&s=10'},
+    { id: 'off campus s1', title: 'Off Campus (🔞 Season 1)', episodes: 8, thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThsGdzab6KY8MHEsGmvWpVDHYlT5nPfkI3z6iZLHLt8g&s=10' },
+    { id: 'lucifier s2',   title: 'Lucifer Season 2(2016)', thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpaCoapjHrlb3SJ0SQAa84d1gq-En0nRyPa9fHWVoW1xBD30xazOVKUsg&s=10', episodes: 18},
+    { id: 'lucifier s1',  title: 'Lucifer Season 1(2016)', thumb: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsZdVt4SF5acGc1A_wLhsfNczSL7gZS0e_pGXXYPtoDg&s=10',  episodes: 13}, 
     
 ];
 

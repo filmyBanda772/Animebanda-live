@@ -211,6 +211,12 @@
 .btn-mixdrop:hover { 
     background-color: #0277bd; 
 }
+.btn-Vikingfile { 
+    background-color:crimson; 
+    color: white; 
+}
+.btn-Vikingfile:hover { background-color: crimson;
+}
 /* search bar */
 #searchInput {
     padding: 20px;
