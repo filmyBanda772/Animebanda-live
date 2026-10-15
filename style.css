@@ -131,7 +131,7 @@
                 gap: 10px;
             }
             /* Adjusts poster height for mobile so it doesn't stretch */
-            .movie-card img { height: 240px; }
+            .movie-card img { height: 270px; }
             .movie-title { font-size: 0.85rem; }
         }
         /* =========================================
@@ -234,7 +234,7 @@
         padding: 15px; 
     }
     .movie-card img { 
-        height: 250px; /* मोबाइल के लिए परफेक्ट हाइट */
+        height: 270px; /* मोबाइल के लिए परफेक्ट हाइट */
         width: 100%;
         object-fit: cover;
     }
