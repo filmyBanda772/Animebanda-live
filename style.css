@@ -131,7 +131,7 @@
                 gap: 10px;
             }
             /* Adjusts poster height for mobile so it doesn't stretch */
-            .movie-card img { height: 200px; }
+            .movie-card img { height: 240px; }
             .movie-title { font-size: 0.85rem; }
         }
         /* =========================================
@@ -230,20 +230,25 @@
         grid-template-columns: repeat(2, minmax(0, 1fr)); 
         gap: 10px; 
     }
-    
+    .main-content { 
+        padding: 15px; 
+    }
     .movie-card img { 
-        height: 200px; /* मोबाइल के लिए परफेक्ट हाइट */
+        height: 240px; /* मोबाइल के लिए परफेक्ट हाइट */
         width: 100%;
         object-fit: cover;
     }
     
     .movie-title { 
-        font-size: 0.9rem; 
+        font-size: 0.9rem;
+        margin-bottom: 3px; /* Title ke niche ka gap kam kiya */ 
     }
-    
+    .movie-info {
+        padding: 8px; /* Mobile par aur bhi tight aur perfect look ke liye padding kam ki */
+    }
     .movie-year { 
-        font-size: 0.75rem; 
-        margin-bottom: 10px; 
+        font-size: 0.7rem; 
+        margin-bottom: 8px; 
     }
     
     /* मोबाइल पर बटन्स थोड़े छोटे और फिट रहें */
