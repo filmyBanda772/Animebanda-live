@@ -234,7 +234,7 @@
         padding: 15px; 
     }
     .movie-card img { 
-        height: 270px; /* मोबाइल के लिए परफेक्ट हाइट */
+        height: 260px; /* मोबाइल के लिए परफेक्ट हाइट */
         width: 100%;
         object-fit: cover;
     }
